@@ -8,12 +8,16 @@ class PicturesController < ApplicationController
   end
 
   def create
-    # @picture = Picture.create(picture_params)
-    # redirect_to pictures_url 
-    render plain: params[:article].inspect
+    # For security reasons we need a require and permit 
+    @picture = Picture.new(picture_params)
+
+    @picture.save
+    redirect_to @picture
+    # render plain: params[:article].inspect
   end
 
-  # def picture_params
-  #   params.require(:picture).permit(:message)
-  # end
+  private
+  def picture_params
+    params.require(:picture).permit(:text)
+  end
 end
