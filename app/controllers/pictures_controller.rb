@@ -1,10 +1,15 @@
 class PicturesController < ApplicationController
   def index
+    @pictures = Picture.order(created_at: :desc)
+  end
 
+  def show
+    # Params id would be a random integer e.g. 1, 2, 3 etc.
+    @picture = Picture.find(params[:id])
   end
 
   def new
-    # @picture = Picture.new
+   
   end
 
   def create
@@ -18,6 +23,7 @@ class PicturesController < ApplicationController
 
   private
   def picture_params
-    params.require(:picture).permit(:text)
+    params.require(:picture).permit(:caption, :image)
+    # Try and add image into picture
   end
 end

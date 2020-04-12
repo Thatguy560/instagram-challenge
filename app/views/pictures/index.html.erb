@@ -1,2 +1,17 @@
 <h1>Makersgram</h1>
 
+<table>
+  <tr>
+    <th>Caption</th>
+    <th>Image</th>
+    <th></th>
+    </tr>
+
+    <% @pictures.each do |picture| %>
+      <tr>
+        <td><%= picture.caption %></td>
+        <td><%= picture.image %><td>
+        <td><%= link_to 'Show', picture_path(picture) %></td>
+        </tr>
+        <% end %>
+        </table>
