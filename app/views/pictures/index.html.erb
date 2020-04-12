@@ -1,5 +1,19 @@
 <h1>Makersgram</h1>
 
+<% if current_user %>
+  Welcome <%= current_user.name %>
+  <br>
+  <%= link_to "New Picture", new_picture_path %>
+  <br>
+  <%= link_to "Logout", logout_path %>
+  <br>
+  <% else %>
+  <%= link_to "Sign Up!", signup_path %>
+  <br>
+  <%= link_to "Log In", login_path %>
+  <br>
+<% end %>
+
 <table>
   <tr>
     <th>Caption</th>
