@@ -10,13 +10,17 @@ Rails.application.routes.draw do
   root 'pictures#index'
 
   resources :pictures
-  resources :users
+  resources :users, only: [:new, :create]
   resources :sessions, only: [:new, :create, :destroy]
   
+  
   get 'login', to: 'sessions#new', as: 'login'
+  # get 'login', to: 'sessions#new'
+  get 'login', to: 'sessions#create'
+  get 'welcome', to: 'sessions#welcome'
   get 'logout', to: 'sessions#destroy'
   get 'signup', to: 'users#new'
-  get 'delete', to: 'posts#destroy'
+  get 'delete', to: 'pictures#destroy'
 
 end
 

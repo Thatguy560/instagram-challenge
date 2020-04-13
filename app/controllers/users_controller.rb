@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+
   def new
     @user = User.new
   end
@@ -11,7 +12,7 @@ class UsersController < ApplicationController
       flash.now[:alert] = "Invalid email or password"
       render :new
     end
-    session[:user_id] = @user.id 
+    session[:user_id] = @user.id
   end
 
   private
